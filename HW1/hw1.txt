@@ -1,0 +1,28 @@
+2.71a.) The function shifts the word over to get the correct byte we want to extract. Then, using the bitwise & operator isolates those 8 bytes by comparing it to 000....0011111111. So, the end result will be 24 zeros followed by the extracted byte. Interpreting this as a signed integer, however ends up always returning a positive number, since the most significant is always 0.
+
+2.71b.) 
+int xbyte(packed_t word, int bytenum)
+{
+	int i = (word << (24 - (bytenum << 3)));
+	return i >> 24;				// use arithmetic right shift by using right shift on an integer
+}
+
+2.82)
+a.) (x<y) == (-x>-y)
+    This is not always one. Take x = INT_MIN, y = 0. Then x<y is 1, but -x>-y is 0 since -INT_MIN = INT_MIN. (-INT_MIN = INT_MAX + 1, which overflows to INT_MIN). 
+
+b.) ((x+y) <<4) + y-x == 17*y+15x
+   This is always 1. Shifting the sum x+y left 4 is equivalent to multiplying by 16. Distributing 16 to x+y gives 16*x+16*y+y-x gives 17*y+15*y which is equivalent to the right side. 
+c.) ~x+~y+1 == ~(x+y)
+    This is always 1. Using arithmetic we can add 1 to both sides:
+    ~x+1 + ~y+1 == ~(x+y) + 1
+    -x + -y == -(x+y)
+    -x + -y == -x + -y 
+    Which is true for all x and y. 
+
+d.) (ux-uy) == -(unsigned)(y-x)
+    This always yields 1, since casting signed to unsigned doesn't change the actual bits. So for any x and y, ux and uy will have the exact same bits, but could be interpreted as a different number if x or y was negative. However, once we cast (y-x) to an unsigned value, it then interprets the bits as an unsigned value, so since the bits never changed, the comparison always returns 1. 
+
+e.) ((x >>2) << 2) <= x
+    This always yields 1 since shifting x right 2 can cause it to lose the 2 least significant bits. Shifting it left 2 then would replace cause the least two significant figures to be 0, which could either leave it unchanged or less than its original value.
+    

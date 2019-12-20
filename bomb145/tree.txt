@@ -1,0 +1,38 @@
+1st number - rsp+0x30
+rsp+0x34 - 2nd
+0x38 - 3rd
+0x3c - 4th
+0x40 - 5th
+0x44 - 6th
+
+
+
+
+0x40166b
+0x401b74
+0x401b83
+0x401b92
+0x401ba1
+0x401bb0
+0x401bbf
+
+Oh, you really stepped in it mate!
+
+Your instructor has been notified
+
+
+So you made it to the s3cret phase.  Nice, but
+don't tell anyone about it (especially on Piazza).
+
+If you do you won't get any extra credit! anyways, 
+finding it and solving it are quite different...
+
+
+
+						36
+					   /         \
+					8		50
+				      /   \           /    \
+				    6	     22     45      107
+				  /   \     / \     / \      /  \
+				1      7   20 35   40	47   99  233	 
